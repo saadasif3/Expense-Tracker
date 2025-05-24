@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Expense Name" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <h2>Expenses:</h2>
+    <ul>
+        <% expenses.forEach(exp => { %>
+            <li>
+                <%= exp.name %> - $<%= exp.amount %>
+                <a href="/edit/<%= exp.id %>">Edit</a>
+                <a href="/delete/<%= exp.id %>">Delete</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
